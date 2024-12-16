@@ -14,9 +14,13 @@ feiertag = (
     or date == "2025.10.31"
 )
 
+zeitraum = date >= "2024.11.25" and date <= "2025.11.24"
+
 if ferien:
     print("Es ist Ferien.")
 elif feiertag:
     print("Es ist ein Feiertag.")
-else:
+elif zeitraum:
     print("Es ist leider kein Feiertag und keine Ferien.")
+else:
+    print("Das Datum ist außerhalb des Kurses.")
