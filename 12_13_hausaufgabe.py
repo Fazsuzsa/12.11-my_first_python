@@ -6,7 +6,13 @@ ferien = (
     or (date > "2025.08.10" and date < "2025.08.20")
 )
 
-feiertag = ["2025.05.01", "2025.05.29", "2025.06.09", "2025.10.03", "2025.10.31"]
+feiertag = (
+    date == "2025.05.01"
+    or date == "2025.05.29"
+    or date == "2025.06.09"
+    or date == "2025.10.03"
+    or date == "2025.10.31"
+)
 
 if ferien:
     print("Es ist Ferien.")
