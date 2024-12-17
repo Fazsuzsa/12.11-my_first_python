@@ -20,8 +20,9 @@ def spiel():
         or (user_choice == "Papier" and compu_choice == "Papier")
     ):
         print(
-            f"Unentschieden. Deine Wahl war {user_choice}, dein Gegner hat {compu_choice} gewählt."
+            f"Unentschieden. Deine Wahl war {user_choice}, dein Gegner hat {compu_choice} gewählt. Wiederhole!"
         )
+        spiel()
     elif (
         (user_choice == "Schere" and compu_choice == "Papier")
         or (user_choice == "Stein" and compu_choice == "Schere")
