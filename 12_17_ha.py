@@ -9,7 +9,7 @@ def calc_area(width, height):
 w = float(input("Wieviel meter breit ist der Rechteck? "))
 h = float(input("Wieviel meter hoch ist der Rechteck? "))
 
-print(f"Die Fläche ist {calc_area(w, h)} quadradmeter.")
+print(f"Die Fläche ist {calc_area(w, h)} quadratmeter.")
 
 
 # Meilen -> Kilometer
