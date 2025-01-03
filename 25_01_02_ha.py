@@ -33,7 +33,7 @@ sum = 0
 z = 0
 for n in i:
     if n % 2 != 0:
-        sum = sum + int(n)
+        sum = sum + n
         z = z + 1
 
 print(sum)

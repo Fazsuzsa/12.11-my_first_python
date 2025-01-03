@@ -156,4 +156,4 @@ list_coffee = [
 ]
 
 index_coffee = 1
-print(f"Mein {index_coffee + 1}. Kaffee ist {list_coffee[index_coffee]["title"]}")
+print("Mein ", {index_coffee + 1}". Kaffee ist ", {list_coffee[index_coffee]["title"]})
