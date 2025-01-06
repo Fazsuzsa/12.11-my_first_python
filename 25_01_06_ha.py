@@ -29,6 +29,5 @@ print(f"Der Durchschnitt der Zahlen ist {durchschnitt}.")
 
 zeilen = int(input("Wieviel Zeilen möchtest du haben? "))
 
-
 for _ in range(zeilen):
     print("*")
