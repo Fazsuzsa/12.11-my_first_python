@@ -37,6 +37,8 @@ else:
 
 
 # für die Hausaufgabe
+
+
 def translate(german_word):
     my_dict = {"Apfel": "apple", "Wörterbuch": "dictionary"}
 
