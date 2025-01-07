@@ -1,7 +1,7 @@
 # Aufgabe 1
 
-text_input = input("Gib einen Text ein: ")
-letter_input = input("Gib eine Buchstabe ein: ")
+text_input = input("Gib einen Text ein: ").lower()
+letter_input = input("Gib eine Buchstabe ein: ").lower()
 
 counter = 0
 for x in text_input:
@@ -27,7 +27,9 @@ print(f"Der Durchschnitt der Zahlen ist {durchschnitt}.")
 
 # Aufgabe 3
 
-zeilen = int(input("Wieviel Zeilen möchtest du haben? "))
+x = int(input("Wieviel Reihe möchtest du? "))
 
-for _ in range(zeilen):
-    print("*")
+for i in range(x):
+    for _ in range(i + 1):
+        print("*", end="")
+    print("")
