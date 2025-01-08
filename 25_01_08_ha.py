@@ -1,3 +1,4 @@
+# Attribute
 class Haustier:
     def __init__(self, name, species, age, food, energy):
         self.name = name
@@ -6,6 +7,7 @@ class Haustier:
         self.favourite_food = food
         self.energy_level = energy
 
+    # Methoden
     def get_description(self):
         print(f"{self.name} ist ein {self.age} Jahre alter {self.species}.")
 
@@ -21,9 +23,30 @@ class Haustier:
             )
             self.energy_level = 0
 
+    def feed(self, food):
+        if food == self.favourite_food:
+            self.energy_level = self.energy_level + 30
+        else:
+            self.energy_level = self.energy_level + 10
+        if self.energy_level > 100:
+            self.energy_level = 100
+        print(
+            f"{self.name} hat {food} gegessen, der neue Energielevel ist {self.energy_level}."
+        )
+
+
+# Objekt
 
 mimi = Haustier("Mimi", "Katze", "3", "Fisch", 100)
 
+# Test
 
 mimi.get_description()
 mimi.play(15)
+mimi.feed("Fisch")
+mimi.feed("Rind")
+
+# mit user input
+
+mimi.play(duration=int(input(f"Wieviel Minuten möchtest du mit {mimi.name} spielen? ")))
+mimi.feed(food=input(f"Womit möchtest du {mimi.name} füttern? "))
