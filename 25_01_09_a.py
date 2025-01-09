@@ -17,12 +17,21 @@ class Pet:
             self.energy_level = self.energy_level - energy_lost
 
     def feed(self, food):
-        new_energy == self.energy_level
+        new_energy = self.energy_level
         if food.lower() == self.favorite_food.lower():
             new_energy = new_energy + 30
         else:
             new_energy = new_energy + 10
-        self.energy_level == new_energy
+        self.energy_level = new_energy
+
+    def sleep(self, hours_slept):
+        new_energy = self.energy_level + hours_slept * 20
+        if new_energy > 100:
+            new_energy = 100
+        self.energy_level = new_energy
+
+    def reset(self):
+        self.energy_level = 100
 
 
 mimi = Pet("Mimi", "Katze", 3, "Fisch")
@@ -33,4 +42,8 @@ print(mimi.energy_level)
 mimi.feed("fisch")
 print(mimi.energy_level)
 mimi.feed("fleisch")
+print(mimi.energy_level)
+mimi.sleep(1)
+print(mimi.energy_level)
+mimi.reset()
 print(mimi.energy_level)
