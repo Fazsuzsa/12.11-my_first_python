@@ -26,3 +26,13 @@ print(f"Netzwerk: {network}")
 print(f"Erste IP: {network[0]}")
 print(f"Letzte IP: {network[-1]}")
 print(f"Anzahl nutzbarer Hosts: {network.num_addresses - 2}")
+
+
+subnets = ["192.168.1.0/28", "192.168.2.0/28"]
+for subnet in subnets:
+    network = ipaddress.ip_network(subnet)
+    print(f"Subnetz: {subnet}")
+    print(f"Erste IP: {network[0]}")
+    print(f"Letzte IP: {network[-1]}")
+    print(f"Anzahl Hosts: {network.num_addresses - 2}")
+    print("-")
