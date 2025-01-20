@@ -15,6 +15,20 @@ def info():
     return "Dies ist eine einfache API mit Flask."
 
 
+from flask import jsonify
+
+
+# json-Daten zurückgeben
+@app.route("/infos")
+def infos():
+    data = {
+        "name": "Max Muster",
+        "beruf": "IT-Experte",
+        "skills": ["Python", "Netzwerke", "APIs"],
+    }
+    return jsonify(data)
+
+
 # Team-Route
 @app.route("/team")
 def team():
@@ -61,6 +75,17 @@ def feedback():
 @app.route("/support")
 def support():
     return "Besuche unsere Support-Seite unter support.example.com."
+
+
+# API mit Parametern
+@app.route("/add/<int:a>/<int:b>")
+def add(a, b):
+    return f"Die Summe von {a} und {b} ist {a + b}."
+
+
+@app.route("/greet/<name>")
+def greet(name):
+    return f"Hallo {name.capitalize()}, willkommen auf meiner Flask-API!"
 
 
 if __name__ == "__main__":
