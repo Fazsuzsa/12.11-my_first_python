@@ -89,4 +89,4 @@ def greet(name):
 
 
 if __name__ == "__main__":
-    app.run(port=6060)
+    app.run(debug=True, port=6060)
