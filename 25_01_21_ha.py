@@ -39,6 +39,7 @@ users = [
 ]
 
 
+# 2.1
 # Beispiel: http://localhost:6060/user/1
 @app.route("/user/<int:id>", methods=["GET"])
 def get_user_id(id):
@@ -47,9 +48,12 @@ def get_user_id(id):
         if id == user["id"]:
             user_id = {"id": user["id"], "name": user["name"], "email": user["email"]}
     if user_id != None:
-        return user_id
+        return f"Nutzerdetails: {user_id}"
+    else:
+        return "Nicht gefunden"
 
 
+# 2.2
 # Beispiel: http://localhost:6060/login/2
 @app.route("/login/<int:id>", methods=["GET"])
 def get_log_in(id):
@@ -62,9 +66,38 @@ def get_log_in(id):
                 "email": user["email"],
             }
     if logged_in_user != None:
-        return "Der Nutzer konnte erfolgreich eingeloggt werden!"
+        return (
+            f"Der Nutzer {logged_in_user['name']} konnte erfolgreich eingeloggt werden!"
+        )
     else:
         return "Der Nutzer konnte nicht eingeloggt werden!"
+
+
+# 2.1 zusammen am 22.01.2025
+# Beispiel: http://localhost:6060/user/1
+@app.route("/user/<int:id>", methods=["GET"])
+def get_user_by_id(id):
+    final_user = None
+    for user in users:
+        if id == user["id"]:
+            final_user = user
+    if final_user == None:
+        return "User could not be found."
+    return f"The User is {final_user}."
+
+
+# 2.3 zusammen am 22.01.2025
+# Beispiel: http://localhost:6060/search?name=Charlie
+@app.route("/search", methods=["GET"])
+def search_for_user_by_name():
+    final_user = None
+    name = request.args.get("name")
+    for user in users:
+        if name == user["name"]:
+            final_user = user
+    if final_user == None:
+        return "User could not be found."
+    return f"Found user: {final_user['name']}"
 
 
 if __name__ == "__main__":
