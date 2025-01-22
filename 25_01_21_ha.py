@@ -1,3 +1,4 @@
+# Aufgabe 1
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -30,18 +31,41 @@ def search():
     return f"Searching for: {query}"
 
 
+# Aufgabe 2
+users = [
+    {"id": 1, "name": "Alice", "email": "alice@example.com"},
+    {"id": 2, "name": "Bob", "email": "bob@example.com"},
+    {"id": 3, "name": "Charlie", "email": "charlie@example.com"},
+]
+
+
+# Beispiel: http://localhost:6060/user/1
+@app.route("/user/<int:id>", methods=["GET"])
+def get_user_id(id):
+    user_id = None
+    for user in users:
+        if id == user["id"]:
+            user_id = {"id": user["id"], "name": user["name"], "email": user["email"]}
+    if user_id != None:
+        return user_id
+
+
+# Beispiel: http://localhost:6060/login/2
+@app.route("/login/<int:id>", methods=["GET"])
+def get_log_in(id):
+    logged_in_user = None
+    for user in users:
+        if id == user["id"]:
+            logged_in_user = {
+                "id": user["id"],
+                "name": user["name"],
+                "email": user["email"],
+            }
+    if logged_in_user != None:
+        return "Der Nutzer konnte erfolgreich eingeloggt werden!"
+    else:
+        return "Der Nutzer konnte nicht eingeloggt werden!"
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=6060)
-# 1. Erstelle eine Flask-App mit mindestens drei GET-Endpunkten.
-# 2. Die GET-Anfragen sollen unterschiedliche Funktionen ausführen:
-# ○ Route 1: /brand/<id>?type=<type>&condition=<condition>
-# ■ Beispiel: http://localhost:6060/brand/10?type=clothes&condition=new
-# ■ Ausgabe: "Brand-ID: 10, Type: clothes, Condition: new"
-# ○ Route 2: /product/<product_id>
-# ■ Beispiel: http://localhost:6060/product/123
-# ■ Ausgabe: "Product-ID: 123"
-# ○ Route 3: /search
-# ■ Beispiel: http://localhost:6060/search?query=shoes
-# ■ Ausgabe: "Searching for: shoes"
-# 3. Bonus: Implementiere eine Validierung der Parameter (z. B. id muss eine Zahl sein).
-# 4. Teste die Routen mit Postman oder deinem Browser.

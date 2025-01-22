@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
@@ -51,12 +51,22 @@ def get_user_default_users_page():
     return "Willkommen Benutzer!"
 
 
+users = [
+    {"id": 1, "name": "Max"},
+    {"id": 2, "name": "Anna"},
+    {"id": 3, "name": "Zsuzsa"},
+]
+
+
 # localhost:6060/users/1
 @app.route("/users/<int:user_id>", methods=["GET"])
 def get_user_id(user_id):
-    users = [{"id": 1, "name": "Max"}, {"id": 2, "name": "Anna"}]
-    for user_id in users:
-        return user_id
+    id = None
+    for user in users:
+        if user_id == user["id"]:
+            id = {"id": user["id"], "name": user["name"]}
+    if id != None:
+        return id
 
 
 if __name__ == "__main__":
