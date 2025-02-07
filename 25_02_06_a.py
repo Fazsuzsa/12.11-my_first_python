@@ -1,4 +1,4 @@
-# 10.01.25 A
+# 25_01_10_a.py
 # user_database = [
 #     {"id": 1, "email": "max@mustermann.de", "password": "12345!"},
 #     {"id": 2, "email": "anna@mustermann.de", "password": "12345?"},
@@ -47,6 +47,7 @@ def login(username, password):
     for u in users:
         if u["username"] == username and u["password"] == hashed_password:
             user = u
+            break
     return user
 
 

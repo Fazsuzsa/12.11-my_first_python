@@ -111,14 +111,36 @@
 # else:
 #     print("Invalid number!")
 
-# 06.02.2025
-# 10
-a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-c = []
-for x in a:
-    if x in b:
-        c.append(x)
-print(
-    list(set(c))
-)  # convert the list of common elements to a set to automatically remove any duplicates
+# # 06.02.2025
+# # 10
+# a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+# b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+# c = []
+# for x in a:
+#     if x in b:
+#         c.append(x)
+# print(
+#     list(set(c))
+# )  # convert the list of common elements to a set to automatically remove any duplicates
+
+# 07.02.2025
+# 11
+a = [5, 10, 15, 20, 25]
+
+
+def liste(l):
+    x = l[0]
+    y = l[-1]
+    b = [x, y]
+    return b
+
+
+print(liste(a))
+
+
+# oder
+def list(l):
+    return [l[0], l[-1]]
+
+
+print(list(a))
