@@ -123,24 +123,71 @@
 #     list(set(c))
 # )  # convert the list of common elements to a set to automatically remove any duplicates
 
-# 07.02.2025
-# 11
-a = [5, 10, 15, 20, 25]
+# # 07.02.2025
+# # 12
+# a = [5, 10, 15, 20, 25]
 
 
-def liste(l):
-    x = l[0]
-    y = l[-1]
-    b = [x, y]
-    return b
+# def liste(l):
+#     x = l[0]
+#     y = l[-1]
+#     b = [x, y]
+#     return b
 
 
-print(liste(a))
+# print(liste(a))
 
 
-# oder
-def list(l):
-    return [l[0], l[-1]]
+# # oder
+# def list(l):
+#     return [l[0], l[-1]]
 
 
-print(list(a))
+# print(list(a))
+
+
+# 02.03.2025 (Hausaufgabe vom 30.01.2025)
+# 13
+def generate_fibonacci():
+    number = int(input("How many fibonacci numbers would you like to generate? "))
+    i = 1
+
+    if number == 0:
+        fibonacci_sequence = []
+
+    elif number == 1:
+        fibonacci_sequence = [1]
+
+    elif number == 2:
+        fibonacci_sequence = [1, 1]
+
+    elif number > 2:
+        fibonacci_sequence = [1, 1]
+        while i < (number - 1):
+            fibonacci_sequence.append(fibonacci_sequence[i] + fibonacci_sequence[i - 1])
+            i = i + 1
+    return fibonacci_sequence
+
+
+print(generate_fibonacci())
+
+# 14
+a = [1, 3, 5, 2, 5, 2, 4, 3, 4, 5, 2, 9, 8, 7, 6, 5, 4, 2, 3, 3, 4]
+
+
+def deduplicate(list):
+    dedup = []
+    for x in list:
+        if x not in dedup:
+            dedup.append(x)
+    return dedup
+
+
+print(deduplicate(a))
+
+
+# a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+# b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+# # Convert lists to sets and find the intersection
+# c = list(set(a) & set(b))
+# print(c)
